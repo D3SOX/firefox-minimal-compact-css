@@ -23,7 +23,7 @@
     background: #f2f2f220;
     color: #ffffff60;
 }
-botto
+
 .Tab[data-pin="true"][data-active="true"] {
     background-color: #ffffff40;
     border-radius: calc(var(--general-border-radius) + 2px);
