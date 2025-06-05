@@ -12,6 +12,7 @@ My personal Firefox theme.
 - Use Sidebery Icon or set a hotkey via addon settings for `Open/Close sidebar panel` to switch between horizontal and vertical tabs
 - Menu highlights matching to my KDE Plasma theme
 - Bouncing indicator line while page is loading
+- Move menu icon to the left
 - Resizable Sidebar with minimal splitter that only shows on hover
 - Use `SF Pro Display` font if installed
 
