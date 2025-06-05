@@ -34,6 +34,18 @@ My personal Firefox theme.
     - URL Bar, Addon-specific Icons, Extensions icon
 11. Enjoy!
 
+## Optional: Smooth Scrolling
+
+I also like to configure smooth scrolling similar to Zen.
+To do that, go to `about:config` and set
+
+- `general.smoothScroll.msdPhysics.continousMotionMaxDeltaMS` to `12`
+- `general.smoothScroll.msdPhysics.enabled` to `true`
+- `general.smoothScroll.msdPhysics.motionBeginSpringConstant` to `600`
+- `general.smoothScroll.msdPhysics.regularSpringConstant` to `650`
+- `general.smoothScroll.msdPhysics.slowdownMinDeltaMS` to `25`
+- `general.smoothScroll.msdPhysics.slowdownSpringConstant` to `250`
+
 ## Credits
 
 - Partially based on [ArcWTF](https://github.com/KiKaraage/ArcWTF)
