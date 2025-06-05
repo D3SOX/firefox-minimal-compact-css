@@ -11,6 +11,8 @@ My personal Firefox theme.
 - Doesn't show tabs when there is only one tab
 - Use Sideberry Icon or set a hotkey via addon settings for `Open/Close sidebar panel` to switch between horizontal and vertical tabs
 - Menu highlights matching to my KDE Plasma theme
+- Bouncing indicator line while page is loading
+- Resizable Sidebar with minimal splitter that only shows on hover
 - Use `SF Pro Display` font if installed
 
 ## Installation
