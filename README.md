@@ -33,7 +33,7 @@ My personal Firefox theme.
    - In Sidebery settings, click on Help
    - Select Import addon data
    - Import the file [sidebery-data.json](./sidebery-data.json)
-7. Go to `about:support` and click on `Open Profile Folder`
+7. Go to `about:support` and click on `Open Directory` under `Profile Directory`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
 10. Customize Toolbar: Set Density to Compact, optionally put in the following items (Links are addons, you have to install and pin them first):
