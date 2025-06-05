@@ -35,7 +35,7 @@ My personal Firefox theme.
 7. Go to `about:support` and click on `Open Profile Folder`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
-10. Customize Toolbar: Set Density to Compact, put in the following items (Links are addons):
+10. Customize Toolbar: Set Density to Compact, put in the following items (Links are addons, you have to install and pin them first):
     - [Close Tab Button](https://addons.mozilla.org/firefox/addon/close-the-tab-button/)
     - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
     - [Simple New Tab Button](https://addons.mozilla.org/firefox/addon/simple-new-tab-button/)
