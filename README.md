@@ -49,4 +49,4 @@ To do that, go to `about:config` and set
 ## Credits
 
 - Partially based on [ArcWTF](https://github.com/KiKaraage/ArcWTF)
-- Uses CSS from [firefox-csshacks](https://github.com/MrOtherGuy/firefox-csshacks) and [CustomCSSForFx](https://github.com/d4rken/CustomCSSForFx)
+- Uses CSS from [firefox-csshacks](https://github.com/MrOtherGuy/firefox-csshacks) and [CustomCSSForFx](https://github.com/Aris-t2/CustomCSSForFx)
