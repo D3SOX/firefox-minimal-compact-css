@@ -21,7 +21,7 @@ My personal Firefox theme.
 2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 3. Set `browser.compactmode.show` to `true`
 4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
-5. If you have used Sideberry before, you should use the minimal config:
+5. If you have used Sideberry before, you should use the minimal config otherwise use the full config
 
    **Minimal Config:**
    - In Sideberry settings, enable `Add preface to the browser window's title if Sidebery sidebar is active`
