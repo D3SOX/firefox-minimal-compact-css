@@ -21,8 +21,17 @@ My personal Firefox theme.
 2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 3. Set `browser.compactmode.show` to `true`
 4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
-5. In Sideberry settings enable `Add preface to the browser window's title if Sidebery sidebar is active` and set the preface value to what's in between here: **`​`** (copy and paste the invisible character)
-6. In the Styles editor paste the contents of [sideberry.css](./sideberry.css)
+5. If you have used Sideberry before, you should use the minimal config:
+
+   **Minimal Config:**
+   - In Sideberry settings, enable `Add preface to the browser window's title if Sidebery sidebar is active`
+   - Set the preface value to the invisible character between these markers: **`​`**
+   - In the Styles editor, paste the contents of [sideberry.css](./sideberry.css)
+
+   **Full Config:**
+   - In Sideberry settings, click on Help
+   - Select Import addon data
+   - Import the file [sideberry-data.json](./sideberry-data.json)
 7. Go to `about:support` and click on `Open Profile Folder`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
