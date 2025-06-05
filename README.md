@@ -9,7 +9,7 @@ My personal Firefox theme.
 - Compact, rounded UI with more Icons
 - Shows amount of tabs on the Sidebery icon
 - Doesn't show tabs when there is only one tab
-- Use Sideberry Icon or set a hotkey via addon settings for `Open/Close sidebar panel` to switch between horizontal and vertical tabs
+- Use Sidebery Icon or set a hotkey via addon settings for `Open/Close sidebar panel` to switch between horizontal and vertical tabs
 - Menu highlights matching to my KDE Plasma theme
 - Bouncing indicator line while page is loading
 - Resizable Sidebar with minimal splitter that only shows on hover
@@ -21,17 +21,17 @@ My personal Firefox theme.
 2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 3. Set `browser.compactmode.show` to `true`
 4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
-5. If you have used Sideberry before, you should use the minimal config otherwise use the full config
+5. If you have used Sidebery before, you should use the minimal config otherwise use the full config
 
    **Minimal Config:**
-   - In Sideberry settings, enable `Add preface to the browser window's title if Sidebery sidebar is active`
+   - In Sidebery settings, enable `Add preface to the browser window's title if Sidebery sidebar is active`
    - Set the preface value to the invisible character between these markers: **`​`**
-   - In the Styles editor, paste the contents of [sideberry.css](./sideberry.css)
+   - In the Styles editor, paste the contents of [sidebery.css](./sidebery.css)
 
    **Full Config:**
-   - In Sideberry settings, click on Help
+   - In Sidebery settings, click on Help
    - Select Import addon data
-   - Import the file [sideberry-data.json](./sideberry-data.json)
+   - Import the file [sidebery-data.json](./sidebery-data.json)
 7. Go to `about:support` and click on `Open Profile Folder`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
