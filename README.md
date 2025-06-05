@@ -23,19 +23,19 @@ My personal Firefox theme.
 4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
 5. If you have used Sidebery before, you should use the minimal config otherwise use the full config
 
-   **Minimal Config:**
+   **Minimal Config**
    - In Sidebery settings, enable `Add preface to the browser window's title if Sidebery sidebar is active`
    - Set the preface value to the invisible character between these markers: **`​`**
    - In the Styles editor, paste the contents of [sidebery.css](./sidebery.css)
 
-   **Full Config:**
+   **Full Config**
    - In Sidebery settings, click on Help
    - Select Import addon data
    - Import the file [sidebery-data.json](./sidebery-data.json)
 7. Go to `about:support` and click on `Open Profile Folder`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
-10. Customize Toolbar: Set Density to Compact, put in the following items (Links are addons, you have to install and pin them first):
+10. Customize Toolbar: Set Density to Compact, optionally put in the following items (Links are addons, you have to install and pin them first):
     - [Close Tab Button](https://addons.mozilla.org/firefox/addon/close-the-tab-button/)
     - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
     - [Simple New Tab Button](https://addons.mozilla.org/firefox/addon/simple-new-tab-button/)
