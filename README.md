@@ -33,3 +33,8 @@ My personal Firefox theme.
     - Downloads (right click and uncheck `Hide Button When Empty` if you want that)
     - URL Bar, Addon-specific Icons, Extensions icon
 11. Enjoy!
+
+## Credits
+
+- Partially based on [ArcWTF](https://github.com/KiKaraage/ArcWTF)
+- Uses CSS from [firefox-csshacks](https://github.com/MrOtherGuy/firefox-csshacks) and [CustomCSSForFx](https://github.com/d4rken/CustomCSSForFx)
