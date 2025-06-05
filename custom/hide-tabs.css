@@ -1,0 +1,29 @@
+/**
+ * INFO: There is a ZWSP (ZERO WIDTH SPACE) character in the titlepreface, you need to set that in Sideberry settings
+ * Dynamic Horizontal Tabs Toolbar (without animations)
+ * sidebar.verticalTabs: false (with native horizontal tabs)
+ */
+#main-window #TabsToolbar > .toolbar-items {
+  overflow: hidden;
+}
+/* Hidden state: Hide native tabs strip */
+#main-window[titlepreface*="​"] #TabsToolbar > .toolbar-items {
+  height: 0 !important;
+}
+/* Hidden state: Fix z-index of active pinned tabs */
+#main-window[titlepreface*="​"] #tabbrowser-tabs {
+  z-index: 0 !important;
+}
+/* Hidden state: Hide window buttons in tabs-toolbar */
+#main-window[titlepreface*="​"] #TabsToolbar .titlebar-spacer,
+#main-window[titlepreface*="​"] #TabsToolbar .titlebar-buttonbox-container {
+  display: none !important;
+}
+/* [Optional] Uncomment block below to show window buttons in nav-bar (maybe, I didn't test it on non-linux-i3wm env) */
+/* #main-window[titlepreface*="​"] #nav-bar > .titlebar-buttonbox-container,
+#main-window[titlepreface*="​"] #nav-bar > .titlebar-buttonbox-container > .titlebar-buttonbox {
+  display: flex !important;
+} */
+/* [Optional] Uncomment one of the line below if you need space near window buttons */
+/* #main-window[titlepreface*="​"] #nav-bar > .titlebar-spacer[type="pre-tabs"] { display: flex !important; } */
+/* #main-window[titlepreface*="​"] #nav-bar > .titlebar-spacer[type="post-tabs"] { display: flex !important; } */

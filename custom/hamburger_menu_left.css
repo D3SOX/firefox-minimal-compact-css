@@ -1,0 +1,5 @@
+/* Move hamburger menu to the left  */
+#PanelUI-button {
+  -moz-box-ordinal-group: 0 !important;
+  order: -1 !important;
+}

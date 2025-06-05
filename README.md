@@ -1,0 +1,35 @@
+# firefox-minimal-compact-css
+
+My personal Firefox theme.
+
+![Screenshot](./screenshot.png)
+
+## Features
+
+- Compact, rounded UI with more Icons
+- Shows amount of tabs on the Sidebery icon
+- Doesn't show tabs when there is only one tab
+- Use Sideberry Icon or set a hotkey via addon settings for `Open/Close sidebar panel` to switch between horizontal and vertical tabs
+- Menu highlights matching to my KDE Plasma theme
+- Use `SF Pro Display` font if installed
+
+## Installation
+
+1. Open Firefox and go to `about:config`
+2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+3. Set `browser.compactmode.show` to `true`
+4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
+5. In Sideberry settings enable `Add preface to the browser window's title if Sidebery sidebar is active` and set the preface value to what's in between here: **`​`** (copy and paste the invisible character)
+6. In the Styles editor paste the contents of [sideberry.css](./sideberry.css)
+7. Go to `about:support` and click on `Open Profile Folder`
+8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
+9. Restart Firefox
+10. Customize Toolbar: Set Density to Compact, put in the following items (Links are addons):
+    - [Close Tab Button](https://addons.mozilla.org/firefox/addon/close-the-tab-button/)
+    - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
+    - [Simple New Tab Button](https://addons.mozilla.org/firefox/addon/simple-new-tab-button/)
+    - Back, Forward, Reload
+    - [Reload Skip Cache Button](https://addons.mozilla.org/firefox/addon/reload-skip-cache-button/)
+    - Downloads (right click and uncheck `Hide Button When Empty` if you want that)
+    - URL Bar, Addon-specific Icons, Extensions icon
+11. Enjoy!

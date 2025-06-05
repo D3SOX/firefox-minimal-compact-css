@@ -1,0 +1,26 @@
+/* Firefox userChrome.css tweaks ********************************************************/
+/* Extension Icon Overrides *************************************************************/
+/****************************************************************************************/
+
+/* Close Tab Button Extension - Override with close-tab.svg icon (shows tab with X) */
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="close-tab-single@codefisher.org"] .toolbarbutton-icon {
+  list-style-image: url(../icons/close-tab.svg) !important;
+}
+
+/* Reload Skip Cache Button Extension - Override with reload-no-cache.svg icon (reload with bypass indicator) */
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="reload-skip-cache-single@codefisher.org"] .toolbarbutton-icon {
+  list-style-image: url(../icons/reload-no-cache.svg) !important;
+}
+
+/* Simple New Tab Button Extension - Override with new-tab.svg icon */
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{42b6f73f-e197-466e-9059-bd40982e88ce}"] .toolbarbutton-icon {
+  list-style-image: url(../icons/new-tab.svg) !important;
+}
+
+/* Optional: Ensure consistent sizing for overridden extension icons */
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="close-tab-single@codefisher.org"] .toolbarbutton-icon,
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="reload-skip-cache-single@codefisher.org"] .toolbarbutton-icon,
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{42b6f73f-e197-466e-9059-bd40982e88ce}"] .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+}

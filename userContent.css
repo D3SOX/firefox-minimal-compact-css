@@ -1,0 +1,11 @@
+@import url(firefox-csshacks/content/css_scrollbar_width_color.css);
+@import url(firefox-csshacks/content/transparent_reader_toolbar.css);
+@import url(firefox-csshacks/content/compact_about_config.css);
+@import url(firefox-csshacks/content/multi_column_addons.css);
+@import url(firefox-csshacks/content/addon_manage_buttons_without_popup.css);
+
+@import url(CustomCSSforFx/current/css/aboutpreferences/category_morefrommozilla_hidden.css);
+@import url(CustomCSSforFx/current/css/aboutpreferences/firefox_support_always_hidden.css);
+
+@import url(CustomCSSforFx/current/css/aboutaddons/addonlists_show_addon_version_number.css);
+@import url(CustomCSSforFx/current/css/aboutaddons/recommendations_category_always_hidden.css);

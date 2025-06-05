@@ -1,0 +1,58 @@
+/* Import your desired components first */
+
+/*@import url(firefox-csshacks/chrome/window_control_placeholder_support.css);*/
+@import url(firefox-csshacks/chrome/window_control_force_linux_system_style.css);
+/*@import url(firefox-csshacks/chrome/hide_tabs_toolbar.css);*/
+
+@import url(firefox-csshacks/chrome/dark_checkboxes_and_radios.css);
+
+@import url(firefox-csshacks/chrome/iconized_content_context_menu.css);
+@import url(firefox-csshacks/chrome/iconized_main_menu.css);
+@import url(firefox-csshacks/chrome/iconized_menubar_items.css);
+@import url(firefox-csshacks/chrome/iconized_places_context_menu.css);
+@import url(firefox-csshacks/chrome/iconized_tabs_context_menu.css);
+@import url(firefox-csshacks/chrome/iconized_textbox_context_menu.css);
+
+/*@import url(firefox-csshacks/chrome/centered_tab_content.css);*/
+/*@import url(firefox-csshacks/chrome/urlbar_centered_text.css);*/
+
+@import url(firefox-csshacks/chrome/compact_urlbar_megabar.css);
+@import url(firefox-csshacks/chrome/compact_proton.css);
+@import url(firefox-csshacks/chrome/minimal_in-UI_scrollbars.css);
+/* @import url(firefox-csshacks/chrome/navigation_buttons_inside_urlbar.css); */
+
+@import url(firefox-csshacks/chrome/scrollable_urlbar_popup.css);
+
+@import url(firefox-csshacks/chrome/urlbar_results_in_two_rows.css);
+@import url(firefox-csshacks/chrome/compact_extensions_panel.css);
+@import url(firefox-csshacks/chrome/round_ui_items.css);
+@import url(firefox-csshacks/chrome/hide_tabs_with_one_tab.css);
+/* @import url(firefox-csshacks/chrome/tab_count_in_alltabs_button.css); */
+
+@import url(CustomCSSforFx/current/css/generalui/findbar_on_top.css);
+@import url(CustomCSSforFx/current/css/generalui/findbar_compact.css);
+@import url(CustomCSSforFx/current/css/generalui/popup_compact_menus.css);
+
+@import url(CustomCSSforFx/current/css/toolbars/default_dark_theme_darker_v2.css);
+
+@import url(CustomCSSforFx/current/css/toolbars/top_toolbar_system_accent_colors.css);
+
+@import url(custom/hide-tabs.css);
+@import url(custom/sidebar.css);
+@import url(custom/popup_items_hover_appearance_mine.css);
+@import url(custom/ac_popup_megabar_result_highlighting_mine.css);
+@import url(custom/buttons_on_bookmarks_toolbar_mine_appearance.css);
+@import url(custom/buttons_on_navbar_mine_appearance.css);
+@import url(custom/urlbar_icons_mine_appearance.css);
+@import url(custom/loading_indicator_bouncing_line_mine.css);
+@import url(custom/hamburger_menu_left.css);
+@import url(custom/extension_icon_overrides.css);
+
+/*
+Apply your custom modifications after imports
+*/
+
+/* Use SF Pro Display font */
+* {
+  font-family: "SF Pro Display", sans-serif !important;
+}

@@ -1,0 +1,133 @@
+/* Keep splitter completely invisible when not in use */
+#sidebar-splitter {
+  width: 1px !important;
+  background-color: transparent !important;
+  border: none !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+/* Create invisible hover trigger positioned at the splitter */
+#sidebar-splitter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 3px;
+  height: 100%;
+  z-index: 5;
+  background-color: transparent;
+}
+
+/* Create overlay on sidebar when hovering splitter */
+#sidebar-box {
+  position: relative;
+}
+
+/* Overlay always exists but starts invisible */
+#sidebar-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2px;
+  width: 5px;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.8) !important;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show overlay with fade-in when hovering splitter */
+#sidebar-box:has(~ #sidebar-splitter:hover)::after,
+#sidebar-splitter:hover ~ #sidebar-box::after,
+#main-window:has(#sidebar-splitter:hover) #sidebar-box::after {
+  opacity: 0.6;
+}
+
+/* Smooth the edge by adding a subtle shadow */
+#sidebar-box {
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Remove sharp edges */
+#sidebar-box,
+#sidebar,
+#sidebar-header {
+  border-right: none !important;
+}
+
+/* Hide sidebar header */
+#sidebar-header {
+  visibility: collapse;
+}
+
+/* Also hide sidebar when there's only one tab open (use together with chrome/hide_tabs_with_one_tab.css) */
+#main-window:has(.tabbrowser-tab:only-of-type) #sidebar-box,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) #sidebar-box,
+#main-window:has(.tabbrowser-tab:only-of-type) #sidebar-splitter,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) #sidebar-splitter {
+  visibility: collapse !important;
+}
+
+/* Change Sidebery icon when there's only one tab */
+#main-window:has(.tabbrowser-tab:only-of-type) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon {
+  list-style-image: url(../icons/window.svg) !important;
+}
+
+/* Set up tab counter for Sidebery icon */
+#main-window {
+  counter-reset: sidebery-tab-counter;
+}
+
+.tabbrowser-tab:not([hidden]) {
+  counter-increment: sidebery-tab-counter;
+}
+
+/* Tab count badge for Sidebery when sidebar is visible (tabs hidden) and multiple tabs */
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
+  content: counter(sidebery-tab-counter);
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: var(--arrowpanel-dimmed);
+  color: var(--arrowpanel-color);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid var(--arrowpanel-border-color);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tab count badge for Sidebery when horizontal tabs are visible and multiple tabs */
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box[hidden] ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
+  content: counter(sidebery-tab-counter);
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: var(--toolbarbutton-active-background);
+  color: var(--toolbarbutton-icon-fill);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid var(--toolbarbutton-hover-background);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
