@@ -1,0 +1,6 @@
+{
+  "style": {
+    "chrome": "https://raw.githubusercontent.com/D3SOX/firefox-minimal-compact-css/master/userChrome.css",
+    "content": "https://raw.githubusercontent.com/D3SOX/firefox-minimal-compact-css/master/userContent.css"
+  }
+}
