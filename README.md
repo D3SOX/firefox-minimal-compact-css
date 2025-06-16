@@ -1,8 +1,13 @@
+<div align="center">
+
 # firefox-minimal-compact-css
 
 My personal Firefox theme.
 
 ![Screenshot](./screenshot.png)
+Used theme: [Dark Matched](https://github.com/serverwentdown/matched)
+
+</div>
 
 ## Features
 
