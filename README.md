@@ -41,8 +41,8 @@ Used theme: [Dark Matched](https://github.com/serverwentdown/matched)
 7. Go to `about:support` and click on `Open Directory` under `Profile Directory`
 8. Clone the repository in this folder by opening a terminal and running `git clone --recursive https://github.com/D3SOX/firefox-minimal-compact-css.git chrome`
 9. Restart Firefox
-10. Customize Toolbar: Set Density to Compact
-11. Then depending on your preference put in the following items  
+10. Open the menu then click on `More tools` -> `Customize toolbar...`. On the bottom left set the `Density` to `Compact`
+11. Then depending on your preference put in the following items in the top bar  
     (Links are addons, you have to install and pin them first, the theme replaces the icons of these addons)
     - [Close Tab Button](https://addons.mozilla.org/firefox/addon/close-the-tab-button/)
     - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
