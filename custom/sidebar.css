@@ -1,5 +1,6 @@
 /* Keep splitter completely invisible when not in use */
 #sidebar-splitter {
+  min-width: 1px !important;
   width: 1px !important;
   background-color: transparent !important;
   border: none !important;
