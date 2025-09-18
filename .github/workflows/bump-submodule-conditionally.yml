@@ -28,7 +28,8 @@ jobs:
         id: bump
         run: |
           chmod +x scripts/bump-submodules-conditionally.sh
-          BRANCH=$(scripts/bump-submodules-conditionally.sh 2>&1 1>/dev/null || true)
+          scripts/bump-submodules-conditionally.sh || true
+          BRANCH=$(cat .tmp_branch_name 2>/dev/null || echo "")
           if [[ -n "$BRANCH" ]]; then
             echo "skip=false" >> $GITHUB_OUTPUT
             echo "branch=$BRANCH" >> $GITHUB_OUTPUT
