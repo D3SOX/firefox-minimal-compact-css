@@ -96,7 +96,14 @@ while IFS= read -r line; do
       [[ -n "$f" ]] || continue
       echo "$f" >> ".tmp/subs_changed/${sm}.txt"
     done <<< "$CHANGED"
-    echo "$sm $new" >> "$TO_BUMP"
+    # Ensure each submodule is only added once to the bump list
+    if [[ -z ${__SM_ADDED_ONCE__+x} ]]; then
+      declare -A __SM_ADDED_ONCE__
+    fi
+    if [[ -z "${__SM_ADDED_ONCE__[$sm]:-}" ]]; then
+      echo "$sm $new" >> "$TO_BUMP"
+      __SM_ADDED_ONCE__[$sm]=1
+    fi
   fi
 done < "$USED_FILE"
 
