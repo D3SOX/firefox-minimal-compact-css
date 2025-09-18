@@ -14,6 +14,11 @@ cd "$REPO_ROOT_DIR"
 
 LIST_SCRIPT="scripts/list-used-submodule-paths.sh"
 
+# Route all standard output to stderr by default so the workflow can safely
+# capture only the final branch name from stdout without noise.
+exec 3>&1
+exec 1>&2
+
 mapfile -t SUBMODULES < <(awk '/^[[:space:]]*path[[:space:]]*=/ {print $3}' .gitmodules)
 if [[ ${#SUBMODULES[@]} -eq 0 ]]; then
   echo "No submodules found" >&2
@@ -177,6 +182,7 @@ git add .gitmodules || true
 git commit -F "$COMMIT_MSG_FILE"
 git push -u origin "$BRANCH"
 
-echo "$BRANCH"
+# Print only the branch name to original stdout (FD 3) for the workflow step.
+printf '%s\n' "$BRANCH" >&3
 
 
