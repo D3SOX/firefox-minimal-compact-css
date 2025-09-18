@@ -21,11 +21,13 @@ jobs:
 
       - name: List used submodule paths
         run: |
+          chmod +x scripts/list-used-submodule-paths.sh
           scripts/list-used-submodule-paths.sh | cat
 
       - name: Determine candidate updates and push branch
         id: bump
         run: |
+          chmod +x scripts/bump-submodules-conditionally.sh
           BRANCH=$(scripts/bump-submodules-conditionally.sh || true)
           if [[ -n "$BRANCH" ]]; then
             echo "skip=false" >> $GITHUB_OUTPUT
