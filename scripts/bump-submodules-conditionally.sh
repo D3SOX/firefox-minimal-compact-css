@@ -17,6 +17,9 @@ LIST_SCRIPT="scripts/list-used-submodule-paths.sh"
 # Optional: path to write the created branch name. Default to a temp file.
 BRANCH_OUTPUT_FILE=${BRANCH_OUTPUT_FILE:-.tmp_branch_name}
 
+# Remember current branch (likely default branch) to restore before PR creation
+CURRENT_BRANCH=$(git symbolic-ref -q --short HEAD || echo "")
+
 mapfile -t SUBMODULES < <(awk '/^[[:space:]]*path[[:space:]]*=/ {print $3}' .gitmodules)
 if [[ ${#SUBMODULES[@]} -eq 0 ]]; then
   echo "No submodules found" >&2
@@ -189,5 +192,10 @@ git push -u origin "$BRANCH"
 
 # Persist and print only the branch name for the workflow step.
 printf '%s\n' "$BRANCH" > "$BRANCH_OUTPUT_FILE"
+
+# Restore original branch (base) so PR step runs from a different branch than head
+if [[ -n "$CURRENT_BRANCH" ]]; then
+  git checkout "$CURRENT_BRANCH" || true
+fi
 
 
