@@ -37,13 +37,27 @@ jobs:
             echo "skip=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create PR
+      - name: Create PR from pushed branch
         if: steps.bump.outputs.skip == 'false'
-        uses: peter-evans/create-pull-request@v7
-        with:
-          branch: ${{ steps.bump.outputs.branch }}
-          title: "chore: bump submodules conditionally"
-          body-path: .tmp_pr_body.md
-          commit-message: "chore: bump submodules conditionally"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ steps.bump.outputs.branch }}"
+          BASE_BRANCH="${{ github.event.repository.default_branch }}"
+
+          echo "Creating PR from $BRANCH -> $BASE_BRANCH"
+
+          # If an open PR already exists for this branch, skip creating a new one
+          if gh pr view "$BRANCH" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "PR already exists for $BRANCH; skipping creation."
+            exit 0
+          fi
+
+          gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --head "$BRANCH" \
+            --base "$BASE_BRANCH" \
+            --title "chore: bump submodules conditionally" \
+            --body-file .tmp_pr_body.md || true
 
 

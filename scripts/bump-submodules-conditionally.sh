@@ -193,9 +193,3 @@ git push -u origin "$BRANCH"
 # Persist and print only the branch name for the workflow step.
 printf '%s\n' "$BRANCH" > "$BRANCH_OUTPUT_FILE"
 
-# Restore original branch (base) so PR step runs from a different branch than head
-if [[ -n "$CURRENT_BRANCH" ]]; then
-  git checkout "$CURRENT_BRANCH" || true
-fi
-
-
