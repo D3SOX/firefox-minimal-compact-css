@@ -37,12 +37,15 @@ fi
 
 declare -A OLD_SHA
 declare -A NEW_SHA
+declare -A SUBMODULE_URL
 
 # Prep SHAs for each submodule
 for sm in "${SUBMODULES[@]}"; do
   OLD_SHA["$sm"]=$(git ls-tree HEAD "$sm" | awk '{print $3}' || true)
   url=$(git config --file .gitmodules "submodule.$sm.url")
   branch=$(git config --file .gitmodules "submodule.$sm.branch" || echo "")
+
+  SUBMODULE_URL["$sm"]="$url"
 
   mkdir -p ".tmp/subs/$sm"
   if [[ ! -d ".tmp/subs/$sm/.git" ]]; then
@@ -146,6 +149,55 @@ emit_changed_files() {
   done < "$uniq_file"
 }
 
+# Convert submodule git URL to GitHub HTML URL
+to_html_url() {
+  local u="$1"
+  if [[ "$u" =~ ^git@github\.com:(.*)\.git$ ]]; then
+    echo "https://github.com/${BASH_REMATCH[1]}"
+    return
+  fi
+  if [[ "$u" =~ ^git@github\.com:(.*)$ ]]; then
+    local path_part="${BASH_REMATCH[1]}"
+    echo "https://github.com/${path_part%/}"
+    return
+  fi
+  if [[ "$u" =~ ^https://github\.com/ ]]; then
+    u="${u%.git}"
+    echo "${u%/}"
+    return
+  fi
+  echo "$u"
+}
+
+# Emit changed files list enhanced with links
+emit_changed_files_with_links() {
+  local sm="$1"
+  local old_sha="$2"
+  local new_sha="$3"
+  local repo_url_html="$4"
+  local uniq_file=".tmp/subs_changed/${sm}.uniq"
+  [[ -f "$uniq_file" ]] || return 0
+  echo "  Changed files (used):"
+  local count=0
+  local total
+  total=$(wc -l < "$uniq_file" | xargs)
+  while IFS= read -r f; do
+    [[ -n "$f" ]] || continue
+    echo "    - $f"
+    echo "      - old: ${repo_url_html}/blob/${old_sha}/${f}"
+    echo "      - new: ${repo_url_html}/blob/${new_sha}/${f}"
+    echo "      - diff: ${repo_url_html}/compare/${old_sha}...${new_sha}?diff=split#files_bucket"
+    count=$((count+1))
+    if [[ $count -ge 50 ]]; then
+      local more=$(( total - count ))
+      if [[ $more -gt 0 ]]; then
+        echo "    ... ($more more)"
+      fi
+      break
+    fi
+  done < "$uniq_file"
+}
+
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -181,7 +233,12 @@ PR_BODY_FILE=".tmp_pr_body.md"
     new=$(echo "$line" | awk '{print $2}')
     old=${OLD_SHA[$sm]:-}
     echo "- $sm: $old -> $new"
-    emit_changed_files "$sm"
+    repo_html_url=$(to_html_url "${SUBMODULE_URL[$sm]}")
+    echo "  - repo: ${repo_html_url}"
+    echo "  - old commit: ${repo_html_url}/commit/${old}"
+    echo "  - new commit: ${repo_html_url}/commit/${new}"
+    echo "  - compare: ${repo_html_url}/compare/${old}...${new}"
+    emit_changed_files_with_links "$sm" "$old" "$new" "$repo_html_url"
     echo
   done < "$TO_BUMP"
 } > "$PR_BODY_FILE"
