@@ -42,13 +42,16 @@ if [[ -n "$filter_submodule" ]]; then
 fi
 
 # Extract @import url(...) targets from known CSS entry points
+# Note: strip CSS block comments first so commented-out @import lines are ignored
 declare -a IMPORTS=()
 for css in "${CSS_SOURCES[@]}"; do
   [[ -f "$css" ]] || continue
-  # Extract content between url( and ), strip surrounding quotes if present
+  # Remove /* ... */ comments (possibly multi-line), then extract content between url( and )
   while IFS= read -r line; do
     IMPORTS+=("$line")
-  done < <(grep -hoE '@import[[:space:]]+url\(([^)]+)\)' "$css" 2>/dev/null | sed -E 's/.*url\(([^)]+)\).*/\1/')
+  done < <(sed -E ':a; s@/\*[^*]*\*+([^/*][^*]*\*+)*/@@g; ta' "$css" \
+           | grep -hoE '@import[[:space:]]+url\(([^)]+)\)' 2>/dev/null \
+           | sed -E 's/.*url\(([^)]+)\).*/\1/')
 done
 
 # Build maps per submodule: unique files and directories
