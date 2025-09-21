@@ -1,6 +1,7 @@
 /* Firefox userChrome.css tweaks ********************************************************/
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
+/* Based on 00bb71e03f714c0e8954ea5f0eaeb43cb7ab9fb2 */
 
 /* override color set by context_bfrsb_labels_with_icons.css */
 @media (-moz-platform: windows) {

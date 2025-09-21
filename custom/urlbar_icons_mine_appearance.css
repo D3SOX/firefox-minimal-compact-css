@@ -1,6 +1,7 @@
 /* Firefox userChrome.css tweaks ********************************************************/
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
+/* Based on b1741386ae6e0d07af3029e742eb614f47676e18 */
 
 #urlbar-container
   :is(#tracking-protection-icon-container, .identity-box-button, .urlbar-page-action):hover {

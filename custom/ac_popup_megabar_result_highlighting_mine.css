@@ -1,6 +1,7 @@
 /* Firefox userChrome.css tweaks ********************************************************/
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
+/* Based on 802b83ceb1251a4d44b7b57c663fac4b4d35398f */
 
 #PopupSearchAutoComplete :is(richlistitem,button):is(:hover,[selected]),   /* apply code to search popup too */
 .urlbarView button:is(:hover,:hover:active,[selected]),

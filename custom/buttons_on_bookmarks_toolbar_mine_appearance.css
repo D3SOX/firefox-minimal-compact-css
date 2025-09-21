@@ -1,6 +1,7 @@
 /* Firefox userChrome.css tweaks ********************************************************/
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
+/* Based on 07f654c8c552360599774ac749bb63322809ff54 */
 
 
 #PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton, [disabled=true], [open]):hover,
