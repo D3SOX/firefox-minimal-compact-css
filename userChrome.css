@@ -1,7 +1,7 @@
 /* Import your desired components first */
 
 /*@import url(firefox-csshacks/chrome/window_control_placeholder_support.css);*/
-@import url(firefox-csshacks/chrome/window_control_force_linux_system_style.css);
+@import url(firefox-csshacks/chrome/deprecated/window_control_force_linux_system_style.css);
 /*@import url(firefox-csshacks/chrome/hide_tabs_toolbar.css);*/
 
 @import url(firefox-csshacks/chrome/dark_checkboxes_and_radios.css);
