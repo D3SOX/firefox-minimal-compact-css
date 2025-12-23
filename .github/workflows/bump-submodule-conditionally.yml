@@ -28,6 +28,7 @@ jobs:
         id: bump
         run: |
           chmod +x scripts/bump-submodules-conditionally.sh
+          chmod +x scripts/update-mine-css-from-submodules.sh
           scripts/bump-submodules-conditionally.sh || true
           BRANCH=$(cat .tmp_branch_name 2>/dev/null || echo "")
           if [[ -n "$BRANCH" ]]; then
