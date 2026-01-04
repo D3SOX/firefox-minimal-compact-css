@@ -66,16 +66,18 @@
 }
 
 /* Also hide sidebar when there's only one tab open (use together with chrome/hide_tabs_with_one_tab.css) */
-#main-window:has(.tabbrowser-tab:only-of-type) #sidebar-box,
-#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) #sidebar-box,
-#main-window:has(.tabbrowser-tab:only-of-type) #sidebar-splitter,
-#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) #sidebar-splitter {
+/* Don't hide sidebar when there's a pinned tab */
+#main-window:has(.tabbrowser-tab:only-of-type):not(:has(.tabbrowser-tab[pinned])) #sidebar-box,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]):not(:has(.tabbrowser-tab[pinned])) #sidebar-box,
+#main-window:has(.tabbrowser-tab:only-of-type):not(:has(.tabbrowser-tab[pinned])) #sidebar-splitter,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]):not(:has(.tabbrowser-tab[pinned])) #sidebar-splitter {
   visibility: collapse !important;
 }
 
 /* Change Sidebery icon when there's only one tab */
-#main-window:has(.tabbrowser-tab:only-of-type) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon,
-#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon {
+/* Don't change icon when there's a pinned tab */
+#main-window:has(.tabbrowser-tab:only-of-type):not(:has(.tabbrowser-tab[pinned])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon,
+#main-window:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]):not(:has(.tabbrowser-tab[pinned])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-icon {
   list-style-image: url(../icons/window.svg) !important;
 }
 
