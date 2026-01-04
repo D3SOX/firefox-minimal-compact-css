@@ -91,7 +91,8 @@
 }
 
 /* Tab count badge for Sidebery when sidebar is visible (tabs hidden) and multiple tabs */
-#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
+#main-window:has(.tabbrowser-tab[pinned]) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
   content: counter(sidebery-tab-counter);
   position: absolute;
   top: -2px;
@@ -114,7 +115,9 @@
 
 /* Tab count badge for Sidebery when horizontal tabs are visible and multiple tabs */
 #main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box[hidden] ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
-#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
+#main-window:has(.tabbrowser-tab[pinned]) #sidebar-box[hidden] ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
+#main-window:has(.tabbrowser-tab[pinned]) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
   content: counter(sidebery-tab-counter);
   position: absolute;
   top: -2px;
