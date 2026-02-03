@@ -24,7 +24,7 @@ Used theme: [Dark Matched](https://github.com/serverwentdown/matched)
 ## Installation
 
 1. Open Firefox and go to `about:config`
-2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` and `svg.context-properties.content.enabled` to `true`
 3. Set `browser.compactmode.show` to `true`
 4. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
 5. If you have used Sidebery before, you should use the minimal config otherwise use the full config
