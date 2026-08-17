@@ -84,56 +84,45 @@
 /* Set up tab counter for Sidebery icon */
 #main-window {
   counter-reset: sidebery-tab-counter;
+  /* Opaque badge colors: Firefox toolbarbutton-* vars are now ~30% transparent color-mix */
+  --sidebery-tab-badge-bg: var(--toolbar-field-focus-background-color, light-dark(rgb(220, 220, 224), rgb(66, 65, 77)));
+  --sidebery-tab-badge-fg: var(--toolbar-field-color, light-dark(rgb(12, 12, 13), rgb(249, 249, 250)));
+  --sidebery-tab-badge-border: light-dark(rgba(12, 12, 13, 0.15), rgba(249, 249, 250, 0.2));
 }
 
 .tabbrowser-tab:not([hidden]) {
   counter-increment: sidebery-tab-counter;
 }
 
-/* Tab count badge for Sidebery when sidebar is visible (tabs hidden) and multiple tabs */
-#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
-#main-window:has(.tabbrowser-tab[pinned]) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
-  content: counter(sidebery-tab-counter);
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  min-width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: var(--arrowpanel-dimmed);
-  color: var(--arrowpanel-color);
-  font-size: 10px;
-  line-height: 16px;
-  text-align: center;
-  font-weight: bold;
-  border: 1px solid var(--arrowpanel-border-color);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack {
+  position: relative;
 }
 
-/* Tab count badge for Sidebery when horizontal tabs are visible and multiple tabs */
+/* Tab count badge for Sidebery when multiple tabs are open */
+#main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
+#main-window:has(.tabbrowser-tab[pinned]) #sidebar-box:not([hidden]) ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
 #main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) #sidebar-box[hidden] ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
 #main-window:not(:has(.tabbrowser-tab:only-of-type)):not(:has(.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"])) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
 #main-window:has(.tabbrowser-tab[pinned]) #sidebar-box[hidden] ~ * :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after,
 #main-window:has(.tabbrowser-tab[pinned]) :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{3c078156-979c-498b-8990-85f7987dd929}"] .toolbarbutton-badge-stack::after {
   content: counter(sidebery-tab-counter);
   position: absolute;
-  top: -2px;
-  right: -2px;
-  min-width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: var(--toolbarbutton-active-background);
-  color: var(--toolbarbutton-icon-fill);
-  font-size: 10px;
-  line-height: 16px;
+  top: 0;
+  right: 0;
+  min-width: 14px;
+  height: 14px;
+  padding-inline: 2px;
+  border-radius: 7px;
+  background-color: var(--sidebery-tab-badge-bg) !important;
+  color: var(--sidebery-tab-badge-fg);
+  font-size: 9px;
+  line-height: 14px;
   text-align: center;
   font-weight: bold;
-  border: 1px solid var(--toolbarbutton-hover-background);
+  border: 1px solid var(--sidebery-tab-badge-border);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
