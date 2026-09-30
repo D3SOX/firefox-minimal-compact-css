@@ -40,6 +40,10 @@
     padding: 0;
 }
 
+#root[data-pinned-tabs-position="top"] .PinnedTabsBar {
+    padding-top: var(--tabs-margin) !important;
+}
+
 .PinnedTabsBar .tab-wrapper {
     flex-grow: 1;
     min-width: 55px;
