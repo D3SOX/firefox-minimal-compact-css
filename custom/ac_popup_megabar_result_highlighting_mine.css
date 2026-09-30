@@ -9,11 +9,8 @@
 .urlbarView-row[selected] {
   color: inherit !important;
   background-color: transparent !important;
-  background-image:
-	linear-gradient(to right, rgba(255,255,255,0.4) 0px, transparent 0px),
-	linear-gradient(to left, rgba(255,255,255,0.4) 0px, transparent 0px),
-	linear-gradient(to top, rgba(255,255,255,0.3) 0px, transparent 0px),
-	linear-gradient(to bottom, rgba(247,163,247,0.1), rgba(246,122,246,0.1)) !important;
+  /* Edge gradients with zero-width stops can leave gray lines on fractional pixels. */
+  background-image: linear-gradient(to bottom, rgba(247,163,247,0.1), rgba(246,122,246,0.1)) !important;
   border-radius: 6px !important;
   outline: 1px solid rgba(206,124,206,0.4) !important;
   outline-radius: 0px !important;
