@@ -66,6 +66,14 @@
   display: none !important;
 }
 
+/* Sidebery replaces the native sidebar launcher in horizontal tab mode */
+@media not -moz-pref("sidebar.verticalTabs") {
+  #sidebar-container,
+  #sidebar-launcher-splitter {
+    display: none !important;
+  }
+}
+
 /* Also hide sidebar when there's only one tab open (use together with chrome/hide_tabs_with_one_tab.css) */
 /* Don't hide sidebar when there's a pinned tab */
 #main-window:has(.tabbrowser-tab:only-of-type):not(:has(.tabbrowser-tab[pinned])) #sidebar-box,
