@@ -60,9 +60,10 @@
   border-right: none !important;
 }
 
-/* Hide sidebar header */
-#sidebar-header {
-  visibility: collapse;
+/* Hide the legacy sidebar header and Firefox 157+ extension panel header */
+#sidebar-header,
+#sidebar-panel-header {
+  display: none !important;
 }
 
 /* Also hide sidebar when there's only one tab open (use together with chrome/hide_tabs_with_one_tab.css) */
