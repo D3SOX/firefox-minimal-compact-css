@@ -39,3 +39,21 @@
   color: HighlightText !important;
 }
 
+/* Hide suggestion badges and restore the full favicon */
+#urlbar-results .urlbarView-type-icon {
+  display: none !important;
+}
+
+#urlbar-results .urlbarView-favicon {
+  mask-image: none !important;
+}
+
+/* Keep titles and URLs separated in Firefox's current suggestion layout */
+#urlbar-results .urlbarView-row-body-top {
+  column-gap: 0.75em !important;
+}
+
+/* Let action pills fit inside compact rows without clipping their borders */
+#urlbar-results :is(.urlbarView-action, .urlbarView-switchToTab-accessory) {
+  margin-block: 0 !important;
+}
