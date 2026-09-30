@@ -24,6 +24,8 @@
 /* Create overlay on sidebar when hovering splitter */
 #sidebar-box {
   position: relative;
+  /* Firefox adds inline padding when its launcher is hidden */
+  padding-inline: 0 !important;
 }
 
 /* Overlay always exists but starts invisible */
