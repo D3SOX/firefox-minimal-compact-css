@@ -45,6 +45,11 @@
   mask-image: none !important;
 }
 
+/* Keep the favicon beside the text; title/URL wrapping belongs inside the body */
+#urlbar-results .urlbarView-row-inner {
+  flex-wrap: nowrap !important;
+}
+
 /* Keep titles and URLs separated in Firefox's current suggestion layout */
 #urlbar-results .urlbarView-row-body-top {
   column-gap: 0.75em !important;
